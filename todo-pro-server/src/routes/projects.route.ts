@@ -20,6 +20,8 @@ const projectRouter = Router();
 projectRouter.post("/", async (req: Request, res: Response) => {
     try {
         const createProjectDto = req.body;
+        createProjectDto.userId = (req as any).user.id;
+        
         const project = await createProject(createProjectDto);
         handleSuccessResponse(res, project);
     } catch (error) {

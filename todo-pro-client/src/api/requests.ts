@@ -16,7 +16,6 @@ export const getUniqueProject = async (projectId: number) => {
 // Create a project
 export const createProject = async (project: any) => {
     const response = await apiClient.post(`/project`, {
-        userId: 1,
         title: project.title,
     });
     return response;
