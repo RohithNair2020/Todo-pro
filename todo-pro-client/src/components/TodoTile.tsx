@@ -100,11 +100,16 @@ function TodoTile(props: TodoTileProps) {
                         )}
                     </div>
                     <div className="flex gap-5">
+                        <p className="text-sm text-gray-600 tracking-wider">
+                            {new Date(todo.createdAt).toLocaleDateString()}
+                        </p>
                         {!edit && (
-                            <span
-                                className="pi pi-pencil"
-                                onClick={editTodo}
-                            ></span>
+                            <>
+                                <span
+                                    className="pi pi-pencil"
+                                    onClick={editTodo}
+                                ></span>
+                            </>
                         )}
                         <span
                             className="pi pi-trash text-red-600"

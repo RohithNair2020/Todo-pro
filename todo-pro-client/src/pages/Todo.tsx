@@ -23,7 +23,7 @@ function Todo() {
         queryFn: () => getProjectTodos(projectId!),
     });
 
-    const { data: projectData } = useQuery({
+    const { data: projectData, isPending: isProjectDataPending } = useQuery({
         queryKey: ["project", projectId],
         queryFn: () => getUniqueProject(Number(projectId)),
     });
@@ -78,12 +78,15 @@ function Todo() {
                                 {projectTitle}
                             </h3>
                         )}
-                        {!titleEdit && (
+                        {projectTitle && !titleEdit && (
                             <span
                                 onClick={() => setTitleEdit(true)}
                                 className="pi pi-pencil font-medium text-2xl cursor-pointer"
                             ></span>
                         )}
+                        {
+                            isProjectDataPending && <Skeleton width="300px" height="70px" />
+                        }
                     </div>
                     <div className="flex gap-3">
                         <Button
@@ -97,7 +100,7 @@ function Todo() {
                             icon="pi pi-download"
                             tooltip="Download project summary"
                             tooltipOptions={{ position: "bottom" }}
-                            onClick={() => downloadProject(projectData.id)}
+                            onClick={() => downloadProject(projectData.id, projectData.title)}
                         />
                         <Button
                             label="New Task"

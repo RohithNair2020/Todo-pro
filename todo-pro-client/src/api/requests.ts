@@ -66,7 +66,7 @@ export const deleteTodo = async (projectId: string, todoId: number) => {
 };
 
 // Download the summary of a project
-export const downloadProject = async (projectId: string) => {
+export const downloadProject = async (projectId: string, projectTitle: string) => {
     try {
         if(!projectId) throw "Invalid projectId for download";
 
@@ -79,7 +79,7 @@ export const downloadProject = async (projectId: string) => {
 
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
-        const fileName = `project-${projectId}-summary.md`;
+        const fileName = `${projectTitle}.md`;
 
         a.href = url;
         a.download = fileName; 

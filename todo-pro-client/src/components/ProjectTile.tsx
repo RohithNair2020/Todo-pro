@@ -26,7 +26,7 @@ function ProjectTile(props: ProjectTileProps) {
         {
             label: "Download",
             icon: "pi pi-download",
-            command: () => downloadProject(String(project.id)),
+            command: () => downloadProject(String(project.id), project.title),
         },
         {
             label: "Delete",

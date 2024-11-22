@@ -27,14 +27,14 @@ export const handleErrorResponse = (
     res.status(statusCode).json(payload);
 };
 
-export const projectSummaryTemplate = (project: Project & { Todo: Todo[] }) => {
+export const projectSummaryTemplate = (project: Project & { todos: Todo[] }) => {
     if (!project) {
         return "";
     }
 
     try {
         const title = project.title;
-        const tasks = project.Todo;
+        const tasks = project.todos;
         const pendingTasks = tasks?.filter((t) => !t.completed);
         const createdOn = new Date(project.createdAt).toDateString();
 
