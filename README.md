@@ -2,6 +2,16 @@
 
 Todo Pro is a Todo App that helps you manage tasks efficiently by organizing them into projects. With Todo Pro, you can create, edit, and track todos while seamlessly managing your projects.
 
+### Demo
+
+- Users who want a demo of Todo Pro can [click here](https://google.com)
+- User who do not wish to create an account can use the guest account credentials given below
+```bash
+Username: guest_user
+Password: Guest@123
+```
+
+
 ---
 
 ## Features
@@ -67,6 +77,9 @@ npm install
 cd todo-pro-server
 npm install
 ```
+
+## Environment Variables
+Developers can refer to the ***example.env*** files provided in both the server and client repositories to add their on ***.env*** files with custom values
 
 ### Starting up the client app for development
 ```bash
